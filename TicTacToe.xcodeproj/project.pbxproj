@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5273A99819F0439800B46187 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5273A99719F0439800B46187 /* main.m */; };
+		52A2070B19F18833001715FF /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2070A19F18833001715FF /* Cell.m */; };
+		52A2070E19F18875001715FF /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2070D19F18875001715FF /* Board.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,11 @@
 
 /* Begin PBXFileReference section */
 		5273A99419F0439800B46187 /* TicTacToe */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TicTacToe; sourceTree = BUILT_PRODUCTS_DIR; };
-		5273A99719F0439800B46187 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5273A99719F0439800B46187 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TicTacToe/main.m; sourceTree = "<group>"; };
+		52A2070919F18833001715FF /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cell.h; path = ../Cell.h; sourceTree = "<group>"; };
+		52A2070A19F18833001715FF /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cell.m; path = ../Cell.m; sourceTree = "<group>"; };
+		52A2070C19F18875001715FF /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		52A2070D19F18875001715FF /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 		5273A98B19F0439800B46187 = {
 			isa = PBXGroup;
 			children = (
+				5273A99719F0439800B46187 /* main.m */,
 				5273A99619F0439800B46187 /* TicTacToe */,
 				5273A99519F0439800B46187 /* Products */,
 			);
@@ -57,7 +64,10 @@
 		5273A99619F0439800B46187 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				5273A99719F0439800B46187 /* main.m */,
+				52A2070919F18833001715FF /* Cell.h */,
+				52A2070A19F18833001715FF /* Cell.m */,
+				52A2070C19F18875001715FF /* Board.h */,
+				52A2070D19F18875001715FF /* Board.m */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -118,7 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A2070E19F18875001715FF /* Board.m in Sources */,
 				5273A99819F0439800B46187 /* main.m in Sources */,
+				52A2070B19F18833001715FF /* Cell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +244,7 @@
 				5273A99D19F0439800B46187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
