@@ -11,8 +11,8 @@
 
 @interface Board : NSObject
 
-@property (nonatomic)BOOL isWinner;
--(BOOL)isWinner:(NSMutableArray *)cells;
-
-
+-(NSMutableArray *)boardCells;
+-(Board *) initWithArray:(NSMutableArray *)boardCells;
+- (void)addCell:(Cell *)cell;
+-(Cell *)selectedCell:(NSUInteger)index;
 @end

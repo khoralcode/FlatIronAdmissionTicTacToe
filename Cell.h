@@ -10,16 +10,11 @@
 
 @interface Cell : NSObject
 
-//@property (nonatomic)NSString *cellProperties;
+
 @property (nonatomic)BOOL isTaken;
-@property (nonatomic)NSInteger *cellIndex;
+@property (nonatomic)int cellIndex;
 @property (nonatomic)char cellMark;
-@property (nonatomic) NSInteger *pickIndex;
--(void) selectCell:(NSInteger)pickIndex;
-@property (nonatomic, strong)  NSMutableArray *cells;
+-(void)setCellMark:(char)cellMark;
 
 
--(void)addCell:(Cell *)cell;
-
-//-(Cell *)selectedCell:(int)index;
 @end

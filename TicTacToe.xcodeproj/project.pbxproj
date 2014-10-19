@@ -10,6 +10,7 @@
 		5273A99819F0439800B46187 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5273A99719F0439800B46187 /* main.m */; };
 		52A2070B19F18833001715FF /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2070A19F18833001715FF /* Cell.m */; };
 		52A2070E19F18875001715FF /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2070D19F18875001715FF /* Board.m */; };
+		52A2071119F2E352001715FF /* TicTacToe_Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A2071019F2E352001715FF /* TicTacToe_Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		52A2070A19F18833001715FF /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cell.m; path = ../Cell.m; sourceTree = "<group>"; };
 		52A2070C19F18875001715FF /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		52A2070D19F18875001715FF /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		52A2070F19F2E352001715FF /* TicTacToe_Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicTacToe_Game.h; sourceTree = "<group>"; };
+		52A2071019F2E352001715FF /* TicTacToe_Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicTacToe_Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 		5273A99619F0439800B46187 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				52A2070F19F2E352001715FF /* TicTacToe_Game.h */,
+				52A2071019F2E352001715FF /* TicTacToe_Game.m */,
 				52A2070919F18833001715FF /* Cell.h */,
 				52A2070A19F18833001715FF /* Cell.m */,
 				52A2070C19F18875001715FF /* Board.h */,
@@ -128,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A2071119F2E352001715FF /* TicTacToe_Game.m in Sources */,
 				52A2070E19F18875001715FF /* Board.m in Sources */,
 				5273A99819F0439800B46187 /* main.m in Sources */,
 				52A2070B19F18833001715FF /* Cell.m in Sources */,

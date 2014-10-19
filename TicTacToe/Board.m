@@ -7,45 +7,47 @@
 //
 
 #import "Board.h"
-extern char *gPlayer;
+@interface Board()
+@property (strong, nonatomic) NSMutableArray *boardCells; //of cells
+@end
 
 @implementation Board
 
--(Board *)initWithArray:(NSMutableArray*)cells
+-(NSMutableArray *)boardCells
 {
+    if (!_boardCells) _boardCells = [[NSMutableArray alloc] init];
+    return _boardCells;
+}
 
-    Board *myBoard = [[Board alloc]initWithArray:cells];
+
+
+-(Board *) initWithArray:(NSMutableArray *)boardCells;
+{
+    int cellCount = 9;
     
-         return self;
+    if (self){
+        for (int i = 0; i< cellCount; i++){
+            Cell *cell = [[Cell alloc]init];
+           {[self.boardCells addObject:cell];}
+            cell.cellIndex = cellCount;
+            
+        }
+    }
+    return self;
 }
--(BOOL)isWinner:(NSMutableArray *)cells{
-  
+
+- (void)addCell:(Cell *)cell;
+{
+    {[self.boardCells addObject:cell];}
+}
+
+
+-(Cell *)selectedCell:(NSUInteger)index
+{
+    return (Cell *) _boardCells[index];
     
-    if (([[cells objectAtIndex:1]cellMark]) == ([[cells objectAtIndex:2]cellMark]) == ([[cells objectAtIndex:3]cellMark])){
-        NSLog (@" %c is winner!", [[cells objectAtIndex:1]cellMark]);
-        _isWinner = YES;}
-        else if
-            (([[cells objectAtIndex:7]cellMark]) == ([[cells objectAtIndex:8]cellMark]) == ([[cells objectAtIndex:9]cellMark])){
-                NSLog (@" %c is winner!", [[cells objectAtIndex:7]cellMark]);
-                _isWinner = YES;}
-        else if
-            (([[cells objectAtIndex:3]cellMark]) == ([[cells objectAtIndex:6]cellMark]) == ([[cells objectAtIndex:9]cellMark])){
-                NSLog (@" %c is winner!", [[cells objectAtIndex:3]cellMark]);
-                _isWinner = YES;}
-        else if  (([[cells objectAtIndex:1]cellMark]) == ([[cells objectAtIndex:4]cellMark]) == ([[cells objectAtIndex:7]cellMark])){
-            NSLog (@" %c is winner!", [[cells objectAtIndex:1]cellMark]);
-            _isWinner = YES;}
-        else if (([[cells objectAtIndex:5]cellMark]) == ([[cells objectAtIndex:7]cellMark]) == ([[cells objectAtIndex:3]cellMark])){
-            NSLog (@" %c is winner!", [[cells objectAtIndex:5]cellMark]);
-            _isWinner = YES;}
-    else if
-        (([[cells objectAtIndex:1]cellMark]) == ([[cells objectAtIndex:5]cellMark]) == ([[cells objectAtIndex:9]cellMark])){
-            NSLog (@" %c is winner!", [[cells objectAtIndex:5]cellMark]);
-            _isWinner = YES;}
-        
-   return NO;
-  
 }
+
 
 
 @end

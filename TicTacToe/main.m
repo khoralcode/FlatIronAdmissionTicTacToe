@@ -9,37 +9,32 @@
 #import <Foundation/Foundation.h>
 #import "Cell.h"
 #import "Board.h"
+#import "TicTacToe_Game.h"
+
 char *gPlayer;
+BOOL isWinner;
+NSMutableArray *boardCells;
+int pickIndex;
+extern int cellCount;
+
 int main(int argc, const char * argv[]) {
 
-   
+   TicTacToe_Game *myGame = [[TicTacToe_Game alloc]initWithArray:(NSMutableArray*)boardCells];
 @autoreleasepool{
-
-//BOOL line;
-
-unsigned int p;
-
-    //Board *myBoard = [[Board alloc]initWithArray:(NSMutableArray *)cells];
-    //Cell *myCell = [[Cell alloc]init];
+    int i;
+while (!isWinner)
+    for (i= 0; i<cellCount; ++i)
+    {
+         NSLog(@"enter pickIndex");
+scanf ("%i", &pickIndex);
     
+    [myGame selectCell:pickIndex];
+    }
+return 0;
 
-//           NSLog(@"winner", player);
-//       } else{
-   // , available cells are: %@", (cells (!value)
-          NSLog (@"Please select a cell");
-              scanf ("%i",&p);
-//              
-     //if (cells.objectAtIndex[p] !value)
-//         {
-//             (cells.objectAtIndex[p] value = player;
-//         }
-//      else {
-//      NSLog (@"Sorry that cell is taken, please choose another");
-//            }
-          }
+  }
+//NSLog (@"%lu cells in array in MAIN myGame ",(unsigned long)[[myGame boardCells] count]);
     
     
-   
-    return 0;
-}
+   }
 

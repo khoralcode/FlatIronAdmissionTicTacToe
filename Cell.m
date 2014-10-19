@@ -7,18 +7,17 @@
 //
 
 #import "Cell.h"
-extern char *gPlayer;
+
 
 @implementation Cell
 
--(char)cellMark
+//-(char)cellMark
+//{
+//    return self.cellMark;
+//}
+-(void)setCellMark:(char)cellMark
 {
-    return _cellMark;
-}
-
--(NSInteger *)cellIndex
-{
-    return _cellIndex;
+    cellMark = 'X';
 }
 -(BOOL)isTaken
 {
@@ -27,26 +26,14 @@ extern char *gPlayer;
     return NO;
     
 }
--(void) selectCell:(NSInteger)pickIndex
+
+-(int)cellIndex
 {
-    
-    if (_isTaken)
-    { NSLog(@"That cell is taken, please choose another");}
-    else
-    {(pickIndex < [self.cells count])?self.cellMark = *(gPlayer): //replace w "current player"
-        NSLog(@" Invalid index, please try again");}
-                            // need to add code to mark X for player1 and 0 for player2
-    _isTaken = YES;
+    return (self.cellIndex);
 }
 
--(NSMutableArray *)cells
-{
-    return _cells;
-}
-- (void)addCell:(Cell *)cell;
-{
-    {[self.cells addObject:cell];}
-}
+
+
 
 
 @end
