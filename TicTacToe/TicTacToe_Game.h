@@ -14,7 +14,6 @@
 @property (nonatomic, getter=isWinner)BOOL winner;
 @property (nonatomic, strong)  NSMutableArray *boardCells;
 @property (nonatomic) NSInteger *pickIndex;
-//@property (nonatomic)BOOL isWinner:(NSMutableArray *)boardCells;
 
 -(void) selectCell:(NSInteger)pickIndex;
 -(TicTacToe_Game *) initWithArray:(NSMutableArray *)boardCells;

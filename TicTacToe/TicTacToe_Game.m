@@ -43,14 +43,12 @@ extern int turnCount;
         
         
     {NSLog (@" %@ is winner!", [[self.boardCells objectAtIndex:1]cellMark]);}
-       return _winner = YES;
-//    else ()
-//    return NO;
-    
-}
+       _winner = YES;
+
     /*
      //break
      else if
+     
      (([[[boardCells objectAtIndex:7]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]])&&([[[boardCells objectAtIndex:7]cellMark] isEqualToString:[[boardCells objectAtIndex:9]cellMark]]))
      
      {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);}
@@ -76,10 +74,10 @@ extern int turnCount;
      
      else ([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:9]cellMark]]);
      
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};
-     _isWinner = YES;
+     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};*/
+    return  _winner = YES;
      
-     //        }*/
+             }
  
 -(void) selectCell:(NSInteger)pickIndex
 {
