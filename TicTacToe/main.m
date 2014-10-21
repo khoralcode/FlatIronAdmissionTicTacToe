@@ -11,30 +11,44 @@
 #import "Board.h"
 #import "TicTacToe_Game.h"
 
-char *gPlayer;
-BOOL isWinner;
-NSMutableArray *boardCells;
-int pickIndex;
-extern int cellCount;
 
+BOOL winner;
+NSMutableArray *boardCells;
+NSUInteger pickIndex;
+ int cellCount;
+extern NSString *player;
+int turnCount;
 int main(int argc, const char * argv[]) {
 
    TicTacToe_Game *myGame = [[TicTacToe_Game alloc]initWithArray:(NSMutableArray*)boardCells];
-@autoreleasepool{
-    int i;
-while (!isWinner)
-    for (i= 0; i<cellCount; ++i)
+
+    @autoreleasepool{
+    
+
+while ((!winner)&& (turnCount<cellCount-1))
+    
+    
+    for (turnCount = 0; turnCount<cellCount;)
     {
-         NSLog(@"enter pickIndex");
-scanf ("%i", &pickIndex);
+        if (!turnCount|| (turnCount % 2 == 0))
+        {player = @"X";
+        }else {
+            player = @"O";}
+       
+        NSLog(@" Player %@ enter cell", player);
+     
+        
+scanf ("%li", &pickIndex);
     
     [myGame selectCell:pickIndex];
+    if ([myGame isWinner]) {NSLog(@"player %@ wins!", player);}
+      
     }
+        if (turnCount >= cellCount)
+        {NSLog(@"Out of Turns, it must be a draw");
 return 0;
 
   }
-//NSLog (@"%lu cells in array in MAIN myGame ",(unsigned long)[[myGame boardCells] count]);
-    
-    
+   
    }
-
+}

@@ -13,6 +13,4 @@
 
 -(NSMutableArray *)boardCells;
 -(Board *) initWithArray:(NSMutableArray *)boardCells;
-- (void)addCell:(Cell *)cell;
--(Cell *)selectedCell:(NSUInteger)index;
 @end

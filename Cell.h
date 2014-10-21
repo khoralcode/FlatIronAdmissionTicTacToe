@@ -10,11 +10,7 @@
 
 @interface Cell : NSObject
 
-
-@property (nonatomic)BOOL isTaken;
-@property (nonatomic)int cellIndex;
-@property (nonatomic)char cellMark;
--(void)setCellMark:(char)cellMark;
-
+@property (nonatomic)NSInteger cellIndex;
+@property (nonatomic)NSString* cellMark;
 
 @end

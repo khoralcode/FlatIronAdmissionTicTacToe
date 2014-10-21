@@ -9,6 +9,7 @@
 #import "Board.h"
 @interface Board()
 @property (strong, nonatomic) NSMutableArray *boardCells; //of cells
+extern int cellCount;
 @end
 
 @implementation Board
@@ -23,31 +24,17 @@
 
 -(Board *) initWithArray:(NSMutableArray *)boardCells;
 {
-    int cellCount = 9;
     
     if (self){
         for (int i = 0; i< cellCount; i++){
             Cell *cell = [[Cell alloc]init];
            {[self.boardCells addObject:cell];}
-            cell.cellIndex = cellCount;
+            cell.cellIndex = i;
             
         }
     }
     return self;
 }
-
-- (void)addCell:(Cell *)cell;
-{
-    {[self.boardCells addObject:cell];}
-}
-
-
--(Cell *)selectedCell:(NSUInteger)index
-{
-    return (Cell *) _boardCells[index];
-    
-}
-
 
 
 @end

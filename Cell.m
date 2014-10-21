@@ -8,33 +8,24 @@
 
 #import "Cell.h"
 
-
 @implementation Cell
+@synthesize cellMark = _cellMark;
 
-//-(char)cellMark
-//{
-//    return self.cellMark;
-//}
--(void)setCellMark:(char)cellMark
+-(NSString*)cellMark
 {
-    cellMark = 'X';
-}
--(BOOL)isTaken
-{
-    if (!self.cellMark)
-    {_isTaken = NO;}
-    return NO;
-    
-}
-
--(int)cellIndex
-{
-    return (self.cellIndex);
+    return _cellMark;
 }
 
 
+-(void)setCellMark:(NSString*)player
+{
+    _cellMark= player;
+}
 
-
+-(NSInteger)cellIndex
+{
+    return _cellIndex;
+}
 
 @end
 
