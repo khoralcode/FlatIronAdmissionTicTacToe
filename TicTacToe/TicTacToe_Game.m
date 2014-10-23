@@ -41,15 +41,18 @@ extern int turnCount;
 {
     
     if (pickIndex > [_boardCells count]-1)// || !ACCEPTABLE_CHARECTERS------THIS STILL DOESNT WORK
-    {NSLog(@" Invalid index, please try again, allowed index is 0-%d", cellCount -1);}
+        {NSLog(@" Invalid index, please try again, allowed index is 0-%d", cellCount -1);}
+    
     else if ([[_boardCells objectAtIndex:pickIndex]cellMark])
-    {  NSLog(@"That cell is taken, please choose another");}
+    
+        {NSLog(@"That cell is taken, please choose another");}
+    
     else{
     Cell* myCell = [_boardCells objectAtIndex:pickIndex];
         [myCell setCellMark:player];turnCount++;
-        if ([self winner:_boardCells]){NSLog(@"player %@ wins from TicTacToe line 50!", player);}
+        if ([self winner:_boardCells]){NSLog(@"player %@ wins!", player);}
     
-    else if ( !winner)
+    else if (![self winner:_boardCells])
     {NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, [myCell cellIndex],[myCell cellMark], turnCount, cellCount);}
 
        }
@@ -58,58 +61,57 @@ extern int turnCount;
 
 
 -(BOOL)winner:(NSMutableArray *)boardCells{
-  
-    //winner = NO;
-    //while (turnCount != cellCount)
-    //{
+ 
+    winner = NO;
+    
+    {
     
     if
         
-        ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:1]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))
+        ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:1]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))&& !nil )
         
         
-    {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:0]cellMark]);}
-    //winner = YES;
+    {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:0]cellMark]);}
+   
    
     
 
   else if
              
-        (([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]])&&([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+        ((([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]])&&([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
-         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
-         //winner = YES;
+         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+        
     
 
   else if
       
-      (([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+      ((([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
-         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:2]cellMark]);}
-         //winner = YES;
+         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:2]cellMark]);}
+        
     
  else if
      
-     (([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:3]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]]))
+     ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:3]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]]))&& !nil )
 
-         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
-         //winner = YES;
+         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+        
     
     
  else if
      
-    (([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]])&&([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))
+    ((([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]])&&([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))&& !nil )
 
-         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
-         //winner = YES;
+         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+       
     
     
  else if
      
-    (([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:4]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+    ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:4]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
-         {NSLog (@" %@", [[boardCells objectAtIndex:6]cellMark]);};)
-    {winner = YES;NSLog( @"%c is winner", player);
+ {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);};
    
 }
     return  winner;
