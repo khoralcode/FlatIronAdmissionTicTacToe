@@ -5,12 +5,16 @@
 //  Created by Alex on 10/18/14.
 //  Copyright (c) 2014 FlatIron. All rights reserved.
 //
-
+#define ACCEPTABLE_CHARECTERS @"0,1,2,3,4,5,6,7,8,9"
 #import "TicTacToe_Game.h"
 int cellCount = 9;
  NSString *player;
 extern int turnCount;
+
+
 @implementation TicTacToe_Game
+
+@synthesize winner;
 
 
 -(TicTacToe_Game *) initWithArray:(NSMutableArray *)boardCells
@@ -21,6 +25,7 @@ extern int turnCount;
             Cell *cell = [[Cell alloc]init];
             {[self.boardCells addObject:cell];}
             cell.cellIndex = i;
+    
         }
     }
     return self;
@@ -31,69 +36,104 @@ extern int turnCount;
     if (!_boardCells) _boardCells = [[NSMutableArray alloc]init];
     return _boardCells;
 }
-
-
--(BOOL)winner:(NSMutableArray *)boardCells{
-    
-    _winner = NO;
-    
-    if
-        
-        (([[[self.boardCells objectAtIndex:1]cellMark] isEqualToString:[[self.boardCells objectAtIndex:2]cellMark]])&&([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[self.boardCells objectAtIndex:3]cellMark]]))
-        
-        
-    {NSLog (@" %@ is winner!", [[self.boardCells objectAtIndex:1]cellMark]);}
-       _winner = YES;
-
-    /*
-     //break
-     else if
-     
-     (([[[boardCells objectAtIndex:7]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]])&&([[[boardCells objectAtIndex:7]cellMark] isEqualToString:[[boardCells objectAtIndex:9]cellMark]]))
-     
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);}
-     _isWinner = YES;
-     
-     return _isWinner;
-     
-     
-     
-     else if([[[boardCells objectAtIndex:3]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]])&&([[[boardCells objectAtIndex:3]cellMark] isEqualToString:[[boardCells objectAtIndex:9]cellMark]]);
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};
-     _isWinner = YES;
-     
-     else if([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:4]cellMark]])&&([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]]);
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};
-     _isWinner = YES;
-     
-     
-     else if([[[boardCells objectAtIndex:5]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]])&&([[[boardCells objectAtIndex:5]cellMark] isEqualToString:[[boardCells objectAtIndex:3]cellMark]]);
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};
-     _isWinner = YES;
-     
-     
-     else ([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:1]cellMark] isEqualToString:[[boardCells objectAtIndex:9]cellMark]]);
-     
-     {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:7]cellMark]);};*/
-    return  _winner = YES;
-     
-             }
  
 -(void) selectCell:(NSInteger)pickIndex
 {
     
-    if (pickIndex > [self.boardCells count]-1)
+    if (pickIndex > [_boardCells count]-1)// || !ACCEPTABLE_CHARECTERS------THIS STILL DOESNT WORK
     {NSLog(@" Invalid index, please try again, allowed index is 0-%d", cellCount -1);}
-    else if ([[self.boardCells objectAtIndex:pickIndex]cellMark])
+    else if ([[_boardCells objectAtIndex:pickIndex]cellMark])
     {  NSLog(@"That cell is taken, please choose another");}
     else{
     Cell* myCell = [_boardCells objectAtIndex:pickIndex];
         [myCell setCellMark:player];turnCount++;
+        if ([self winner:_boardCells]){NSLog(@"player %@ wins from TicTacToe line 50!", player);}
+    
+    else if ( !winner)
+    {NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, [myCell cellIndex],[myCell cellMark], turnCount, cellCount);}
 
-        NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, [myCell cellIndex],[myCell cellMark], turnCount, cellCount);}
-
+       }
+    
 }
 
 
+-(BOOL)winner:(NSMutableArray *)boardCells{
+  
+    //winner = NO;
+    //while (turnCount != cellCount)
+    //{
+    
+    if
+        
+        ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:1]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))
+        
+        
+    {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:0]cellMark]);}
+    //winner = YES;
+   
+    
 
+  else if
+             
+        (([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]])&&([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+    
+         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+         //winner = YES;
+    
+
+  else if
+      
+      (([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+    
+         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:2]cellMark]);}
+         //winner = YES;
+    
+ else if
+     
+     (([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:3]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]]))
+
+         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+         //winner = YES;
+    
+    
+ else if
+     
+    (([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]])&&([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))
+
+         {NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+         //winner = YES;
+    
+    
+ else if
+     
+    (([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:4]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))
+    
+         {NSLog (@" %@", [[boardCells objectAtIndex:6]cellMark]);};)
+    {winner = YES;NSLog( @"%c is winner", player);
+   
+}
+    return  winner;
+}
+ 
+
+-(void)printGame
+{
+//   // if (!null) %s, else "" , also need to convert @"" to C string, in order to work with printf
+//
+//    printf ("+--------------------+\n"
+//            "|      |      |      |\n"
+//            "|  %s  |  %s  |  %s  |\n"
+//            "|      |      |      |\n"
+//            "+--------------------+\n"
+//            "|      |      |      |\n"
+//            "|  %s  |  %s  |  %s  |\n"
+//            "|      |      |      |\n"
+//            "+--------------------+\n"
+//            "|      |      |      |\n"
+//            "|  %s  |  %s  |  %s  |\n"
+//            "|      |      |      |\n"
+//            "+--------------------+\n"
+//
+//            ,[[_boardCells objectAtIndex:0]cellMark],[[_boardCells objectAtIndex:1]cellMark],[[_boardCells objectAtIndex:2]cellMark],[[_boardCells objectAtIndex:3]cellMark],[[_boardCells objectAtIndex:4]cellMark],[[_boardCells objectAtIndex:5]cellMark],[[_boardCells objectAtIndex:6]cellMark],[[_boardCells objectAtIndex:7]cellMark],[[_boardCells objectAtIndex:8]cellMark]);
+}
 @end

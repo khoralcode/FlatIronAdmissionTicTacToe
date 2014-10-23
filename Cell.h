@@ -13,4 +13,5 @@
 @property (nonatomic)NSInteger cellIndex;
 @property (nonatomic)NSString* cellMark;
 
+
 @end

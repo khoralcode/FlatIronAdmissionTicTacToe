@@ -11,12 +11,13 @@
 #import "Board.h"
 @interface TicTacToe_Game : NSObject
 
-@property (nonatomic, getter=isWinner)BOOL winner;
+@property (nonatomic)BOOL winner;
 @property (nonatomic, strong)  NSMutableArray *boardCells;
 @property (nonatomic) NSInteger *pickIndex;
 
 -(void) selectCell:(NSInteger)pickIndex;
 -(TicTacToe_Game *) initWithArray:(NSMutableArray *)boardCells;
 
+//-(void) printGame;
 
 @end
