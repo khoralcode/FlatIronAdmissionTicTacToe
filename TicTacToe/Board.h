@@ -13,4 +13,5 @@
 
 -(NSMutableArray *)boardCells;
 -(Board *) initWithArray:(NSMutableArray *)boardCells;
+
 @end

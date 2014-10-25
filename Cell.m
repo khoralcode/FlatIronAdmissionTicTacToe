@@ -10,6 +10,7 @@
 
 @implementation Cell
 @synthesize cellMark = _cellMark;
+@synthesize cellIndex = _cellIndex;
 
 -(NSString*)cellMark
 {
@@ -22,7 +23,7 @@
     _cellMark= player;
 }
 
--(NSInteger)cellIndex
+-(NSInteger*)cellIndex
 {
     return _cellIndex;
 }

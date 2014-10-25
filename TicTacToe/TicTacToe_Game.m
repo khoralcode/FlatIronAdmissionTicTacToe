@@ -19,12 +19,12 @@ extern int turnCount;
 
 -(TicTacToe_Game *) initWithArray:(NSMutableArray *)boardCells
 {
-
-    if (self){
-        for (int i = 0; i< cellCount; i++){
+    
+        if (self){
+        for (long i = 0; i< cellCount; i++){
             Cell *cell = [[Cell alloc]init];
             {[self.boardCells addObject:cell];}
-            cell.cellIndex = i;
+            cell.cellIndex = (NSInteger *)i;
     
         }
     }
@@ -50,10 +50,11 @@ extern int turnCount;
     else{
     Cell* myCell = [_boardCells objectAtIndex:pickIndex];
         [myCell setCellMark:player];turnCount++;
-        if ([self winner:_boardCells]){NSLog(@"player %@ wins!", player);}
+        if ([self winner:_boardCells]){NSLog(@"Game Over");}
     
     else if (![self winner:_boardCells])
-    {NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, [myCell cellIndex],[myCell cellMark], turnCount, cellCount);}
+    {NSLog(@" Player %@ marked cell %p with an %@, its turn %i of %i", player, [myCell cellIndex],
+           [myCell cellMark], turnCount, cellCount);}
 
        }
     

@@ -10,7 +10,7 @@
 
 @interface Cell : NSObject
 
-@property (nonatomic)NSInteger cellIndex;
+@property (nonatomic)NSInteger* cellIndex;
 @property (nonatomic)NSString* cellMark;
 
 
