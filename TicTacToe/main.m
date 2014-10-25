@@ -18,26 +18,25 @@ NSUInteger pickIndex;  //I realize pickIndex and cellCount need to be pointers, 
 extern int cellCount;
 extern NSString *player;
 int turnCount;
-BOOL winner;
+//static BOOL winner;
 
 int main(int argc, const char * argv[]) {
 
     
-   TicTacToe_Game *myGame = [[TicTacToe_Game alloc]initWithArray:(NSMutableArray*)boardCells];
-
+   
     @autoreleasepool{
     
-
-while (!([myGame winner])|| (turnCount>cellCount-1))
-    
-    
+  TicTacToe_Game *myGame = [[TicTacToe_Game alloc]initWithArray:(NSMutableArray*)boardCells];
+     
+        {
+            while (![myGame winner])
     for (turnCount = 0; turnCount<cellCount;)
     {
         if (!turnCount|| (turnCount % 2 == 0))
         {player = @"X";
         }else {
             player = @"O";}
-       
+     
         NSLog(@" Player %@ enter cell", player);
      
         
@@ -48,9 +47,9 @@ scanf ("%li", &pickIndex);
         
       
     }
-        if (turnCount >= cellCount)
+        if ((turnCount >= cellCount)&& ![myGame winner])
         {NSLog(@"Out of Turns, it must be a draw");
-            
+        }
 return 0;
 
   }

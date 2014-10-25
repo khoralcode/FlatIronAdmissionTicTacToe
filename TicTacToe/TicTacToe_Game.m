@@ -43,7 +43,7 @@ extern int turnCount;
     if (pickIndex > [_boardCells count]-1)// || !ACCEPTABLE_CHARECTERS------THIS STILL DOESNT WORK
         {NSLog(@" Invalid index, please try again, allowed index is 0-%d", cellCount -1);}
     
-    else if ([[_boardCells objectAtIndex:pickIndex]cellMark])
+        if ([[_boardCells objectAtIndex:pickIndex]cellMark])
     
         {NSLog(@"That cell is taken, please choose another");}
     
@@ -71,7 +71,7 @@ extern int turnCount;
         ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:1]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))&& !nil )
         
         
-    {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:0]cellMark]);}
+    {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:0]cellMark]);}
    
    
     
@@ -80,7 +80,7 @@ extern int turnCount;
              
         ((([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:7]cellMark]])&&([[[boardCells objectAtIndex:6]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
-         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+  {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
         
     
 
@@ -88,14 +88,14 @@ extern int turnCount;
       
       ((([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:5]cellMark]])&&([[[boardCells objectAtIndex:2]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
-         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:2]cellMark]);}
+         {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:2]cellMark]);}
         
     
  else if
      
      ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:3]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]]))&& !nil )
 
-         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+         {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
         
     
     
@@ -103,7 +103,7 @@ extern int turnCount;
      
     ((([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:6]cellMark]])&&([[[boardCells objectAtIndex:4]cellMark] isEqualToString:[[boardCells objectAtIndex:2]cellMark]]))&& !nil )
 
-         {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
+         {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);}
        
     
     
@@ -111,7 +111,7 @@ extern int turnCount;
      
     ((([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:4]cellMark]])&&([[[boardCells objectAtIndex:0]cellMark] isEqualToString:[[boardCells objectAtIndex:8]cellMark]]))&& !nil )
     
- {winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);};
+ {turnCount = cellCount;winner = YES;NSLog (@" %@ is winner!", [[boardCells objectAtIndex:6]cellMark]);};
    
 }
     return  winner;
