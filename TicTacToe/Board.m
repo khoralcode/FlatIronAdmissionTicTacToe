@@ -24,15 +24,12 @@ extern int cellCount;
 
 -(Board *) initWithArray:(NSMutableArray *)boardCells;
 {
-    long i;
-    if (self){
-        for (i = 0; i< cellCount; i++){
-            Cell *cell = [[Cell alloc]init];
-           {[self.boardCells addObject:cell];}
-            cell.cellIndex = &(i);
-            
-        }
-    }
+
+            for (long i = 0; i< cellCount; i++){
+                Cell *cell = [[Cell alloc]init];
+                {[self.boardCells addObject:cell];}
+                cell.cellIndex = (NSInteger *)i;
+                                                }
     return self;
 }
 
