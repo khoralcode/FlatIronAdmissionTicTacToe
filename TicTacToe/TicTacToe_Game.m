@@ -25,7 +25,7 @@ extern int turnCount;
             Cell *cell = [[Cell alloc]init];
             {[self.boardCells addObject:cell];}
             cell.cellIndex = (NSInteger *)i;
-    
+      cell.cellDisplay = [NSString stringWithFormat:@"%zd",cell.cellIndex];
         }
     }
     return self;
@@ -49,11 +49,17 @@ extern int turnCount;
     
     else{
     Cell* myCell = [_boardCells objectAtIndex:pickIndex];
-        [myCell setCellMark:player];turnCount++; [self printGame];
-        if ([self winner:_boardCells]){NSLog(@"Game Over");}
+        [myCell setCellMark:player];turnCount++;[self printGame];
+       if (turnCount == cellCount)//&& (![self winner:_boardCells]))
+       {NSLog(@"Out of Turns, it must be a draw, Game Over!");[self winner:_boardCells];}
+       else if
+           ([self winner:_boardCells]){ NSLog(@"Game Over!");}
+        
+        
     
     else if (![self winner:_boardCells])
-    {NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, (long)[myCell cellIndex],
+        [myCell setCellDisplay:player];
+    {NSLog(@" Player %@ marked cell %zd with an %@, its turn %i of %i", player, [myCell cellIndex],
            [myCell cellMark], turnCount, cellCount);}
         
        }
@@ -125,16 +131,15 @@ extern int turnCount;
 
     NSLog (@"+--------------------+");
     NSLog (@"|      |      |      |");
-    NSLog (@"|  % i  | % i   |  % i  |",[[_boardCells objectAtIndex:0]cellIndex],//?[[_boardCells objectAtIndex:0]cellMark]:[[_boardCells objectAtIndex:0]cellIndex],//
-           [[_boardCells objectAtIndex:1]cellIndex],[[_boardCells objectAtIndex:2]cellIndex]);
+     NSLog(@"|   %@  |  %@   |   %@  |",[[_boardCells objectAtIndex:0]cellDisplay],[[_boardCells objectAtIndex:1]cellDisplay],[[_boardCells objectAtIndex:2]cellDisplay]);
     NSLog (@"|      |      |      |");
     NSLog (@"+--------------------+");
     NSLog (@"|      |      |      |");
-    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:3]cellMark],[[_boardCells objectAtIndex:4]cellMark],[[_boardCells objectAtIndex:5]cellMark]);
+    NSLog (@"|   %@  |  %@   |   %@  |",[[_boardCells objectAtIndex:3]cellDisplay],[[_boardCells objectAtIndex:4]cellDisplay],[[_boardCells objectAtIndex:5]cellDisplay]);
     NSLog (@"|      |      |      |");
     NSLog (@"+--------------------+");
     NSLog (@"|      |      |      |");
-    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:6]cellMark],[[_boardCells objectAtIndex:7]cellMark],[[_boardCells objectAtIndex:8]cellMark]);
+    NSLog (@"|   %@  |  %@   |   %@  |",[[_boardCells objectAtIndex:6]cellDisplay],[[_boardCells objectAtIndex:7]cellDisplay],[[_boardCells objectAtIndex:8]cellDisplay]);
     NSLog (@"|      |      |      |");
     NSLog (@"+--------------------+");
     

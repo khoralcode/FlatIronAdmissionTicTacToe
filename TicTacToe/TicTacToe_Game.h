@@ -18,6 +18,6 @@
 -(void) selectCell:(NSInteger)pickIndex;
 -(TicTacToe_Game *) initWithArray:(NSMutableArray *)boardCells;
 
-//-(void) printGame;
+-(void) printGame;
 
 @end

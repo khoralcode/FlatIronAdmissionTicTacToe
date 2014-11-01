@@ -18,7 +18,7 @@ NSUInteger pickIndex;  //I realize pickIndex and cellCount need to be pointers, 
 extern int cellCount;
 extern NSString *player;
 int turnCount;
-//static BOOL winner;
+
 
 int main(int argc, const char * argv[]) {
 
@@ -38,18 +38,15 @@ int main(int argc, const char * argv[]) {
             player = @"O";}
      
         NSLog(@" Player %@ enter cell", player);
-     
+        [myGame printGame];
         
 scanf ("%li", &pickIndex);
     
     [myGame selectCell:pickIndex];
-        
-        
+     
       
     }
-        if ((turnCount >= cellCount)&& ![myGame winner])
-        {NSLog(@"Out of Turns, it must be a draw");
-        }
+        
 return 0;
 
   }
