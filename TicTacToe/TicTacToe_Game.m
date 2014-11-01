@@ -39,7 +39,7 @@ extern int turnCount;
  
 -(void) selectCell:(NSInteger)pickIndex
 {
-    
+   
     if (pickIndex > [_boardCells count]-1)// || !ACCEPTABLE_CHARECTERS------THIS STILL DOESNT WORK
         {NSLog(@" Invalid index, please try again, allowed index is 0-%d", cellCount -1);}
     
@@ -49,13 +49,13 @@ extern int turnCount;
     
     else{
     Cell* myCell = [_boardCells objectAtIndex:pickIndex];
-        [myCell setCellMark:player];turnCount++;
+        [myCell setCellMark:player];turnCount++; [self printGame];
         if ([self winner:_boardCells]){NSLog(@"Game Over");}
     
     else if (![self winner:_boardCells])
     {NSLog(@" Player %@ marked cell %ld with an %@, its turn %i of %i", player, (long)[myCell cellIndex],
            [myCell cellMark], turnCount, cellCount);}
-
+        
        }
     
 }
@@ -121,22 +121,21 @@ extern int turnCount;
 
 -(void)printGame
 {
-//   // if (!null) %s, else "" , also need to convert @"" to C string, in order to work with printf
-//
-//    printf ("+--------------------+\n"
-//            "|      |      |      |\n"
-//            "|  %s  |  %s  |  %s  |\n"
-//            "|      |      |      |\n"
-//            "+--------------------+\n"
-//            "|      |      |      |\n"
-//            "|  %s  |  %s  |  %s  |\n"
-//            "|      |      |      |\n"
-//            "+--------------------+\n"
-//            "|      |      |      |\n"
-//            "|  %s  |  %s  |  %s  |\n"
-//            "|      |      |      |\n"
-//            "+--------------------+\n"
-//
-//            ,[[_boardCells objectAtIndex:0]cellMark],[[_boardCells objectAtIndex:1]cellMark],[[_boardCells objectAtIndex:2]cellMark],[[_boardCells objectAtIndex:3]cellMark],[[_boardCells objectAtIndex:4]cellMark],[[_boardCells objectAtIndex:5]cellMark],[[_boardCells objectAtIndex:6]cellMark],[[_boardCells objectAtIndex:7]cellMark],[[_boardCells objectAtIndex:8]cellMark]);
+   
+
+    NSLog (@"+--------------------+");
+    NSLog (@"|      |      |      |");
+    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:0]cellMark],[[_boardCells objectAtIndex:1]cellMark],[[_boardCells objectAtIndex:2]cellMark]);
+    NSLog (@"|      |      |      |");
+    NSLog (@"+--------------------+");
+    NSLog (@"|      |      |      |");
+    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:3]cellMark],[[_boardCells objectAtIndex:4]cellMark],[[_boardCells objectAtIndex:5]cellMark]);
+    NSLog (@"|      |      |      |");
+    NSLog (@"+--------------------+");
+    NSLog (@"|      |      |      |");
+    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:6]cellMark],[[_boardCells objectAtIndex:7]cellMark],[[_boardCells objectAtIndex:8]cellMark]);
+    NSLog (@"|      |      |      |");
+    NSLog (@"+--------------------+");
+    
 }
 @end

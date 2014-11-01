@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
 scanf ("%li", &pickIndex);
     
     [myGame selectCell:pickIndex];
-        //[myGame printGame];
+        
         
       
     }
