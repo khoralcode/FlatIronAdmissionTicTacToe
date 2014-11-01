@@ -125,7 +125,8 @@ extern int turnCount;
 
     NSLog (@"+--------------------+");
     NSLog (@"|      |      |      |");
-    NSLog (@"|  %@  |  %@  |  %@  |",[[_boardCells objectAtIndex:0]cellMark],[[_boardCells objectAtIndex:1]cellMark],[[_boardCells objectAtIndex:2]cellMark]);
+    NSLog (@"|  % i  | % i   |  % i  |",[[_boardCells objectAtIndex:0]cellIndex],//?[[_boardCells objectAtIndex:0]cellMark]:[[_boardCells objectAtIndex:0]cellIndex],//
+           [[_boardCells objectAtIndex:1]cellIndex],[[_boardCells objectAtIndex:2]cellIndex]);
     NSLog (@"|      |      |      |");
     NSLog (@"+--------------------+");
     NSLog (@"|      |      |      |");
