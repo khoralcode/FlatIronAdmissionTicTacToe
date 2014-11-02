@@ -10,11 +10,11 @@
 #import "Cell.h"
 #import "Board.h"
 #import "TicTacToe_Game.h"
-
+#define ACCEPTABLE_CHARECTERS @[@"0",@"1",@"2", @"3", @"4", @"5", @"6", @"7", @"8"]
 
 
 NSMutableArray *boardCells;
-NSUInteger pickIndex;  //I realize pickIndex and cellCount need to be pointers, not sure how to convert int to NSinteger.
+NSUInteger pickIndex;
 extern int cellCount;
 extern NSString *player;
 int turnCount;
@@ -41,7 +41,12 @@ int main(int argc, const char * argv[]) {
         [myGame printGame];
         
 scanf ("%li", &pickIndex);
-    
+        NSString *selection = [NSString stringWithFormat:@"%zd", pickIndex];
+        NSLog(@"NSString Selection %@",selection);
+    if  (![selection  isEqual: ACCEPTABLE_CHARECTERS])//--------NOT WORKING!!
+           // || (@"1")|| (@"2")|| @"3"|| @"4"|| @"5"|| @"6"|| @"7"|| @"8"]
+    {NSLog(@" invalid character, numerics 0-8 only please");}
+        else
     [myGame selectCell:pickIndex];
      
       
